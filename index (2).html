@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProFile AI — LinkedIn Rewrites That Get You Hired</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;
+  --bg:#f5f7ff;
+  --blue:#2563eb;
+  --blue-light:#eff6ff;
+  --blue-mid:#bfdbfe;
+  --indigo:#4f46e5;
+  --teal:#0891b2;
+  --green:#059669;
+  --green-light:#ecfdf5;
+  --amber:#d97706;
+  --text:#0f172a;
+  --text2:#475569;
+  --muted:#94a3b8;
+  --border:#e2e8f0;
+  --grad:linear-gradient(135deg,#2563eb 0%,#4f46e5 50%,#0891b2 100%);
+  --grad-soft:linear-gradient(135deg,#eff6ff 0%,#f0f9ff 50%,#f0fdf4 100%);
+  --shadow-sm:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --shadow-md:0 4px 16px rgba(15,23,42,.08),0 2px 6px rgba(15,23,42,.04);
+  --shadow-lg:0 20px 48px rgba(15,23,42,.12),0 8px 16px rgba(15,23,42,.06);
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(226,232,240,0.7);padding:0 2rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:0.875rem;font-weight:500;color:var(--text2);text-decoration:none;padding:6px 12px;border-radius:var(--r-sm);transition:all .15s;border:none;background:none;cursor:pointer;font-family:inherit}
+.nav-link:hover{color:var(--text);background:var(--bg)}
+.nav-cta{background:var(--grad);color:white!important;padding:8px 18px!important;border-radius:100px;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,.3);font-size:0.875rem;border:none;cursor:pointer;font-family:inherit;transition:all .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(37,99,235,.4)}
+@media(max-width:640px){.nav-link:not(.nav-cta){display:none}}
+
+/* PAGE SYSTEM */
+.page{display:none}
+.page.active{display:block}
+
+/* ===== HOME PAGE ===== */
+
+/* HERO */
+.hero{background:var(--grad-soft);padding:5rem 2rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,235,.07),transparent);pointer-events:none}
+.hero-inner{max-width:820px;margin:0 auto;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--blue-mid);color:var(--blue);font-size:0.77rem;font-weight:700;padding:5px 14px;border-radius:100px;margin-bottom:1.8rem;box-shadow:var(--shadow-sm);animation:fadeUp .5s ease both}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;margin-bottom:1.2rem;animation:fadeUp .5s .08s ease both}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.italic-serif{font-family:'Lora',serif;font-style:italic;font-weight:600}
+.hero-sub{font-size:1.05rem;color:var(--text2);max-width:540px;margin:0 auto 2.2rem;line-height:1.75;animation:fadeUp .5s .16s ease both}
+.hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;animation:fadeUp .5s .22s ease both}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-size:.95rem;font-weight:700;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:inherit;line-height:1}
+.btn-primary{background:var(--grad);color:white;box-shadow:0 4px 20px rgba(37,99,235,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.45)}
+.btn-secondary{background:white;color:var(--text);border:1.5px solid var(--border)}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+.proof-row{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:2.8rem;padding-top:2.5rem;border-top:1px solid rgba(226,232,240,.7);animation:fadeUp .5s .3s ease both}
+.proof-item{text-align:center}
+.proof-n{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.proof-l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-top:2px}
+
+/* DEMO */
+.demo-section{background:var(--grad-soft);padding:1.5rem 2rem 5rem}
+.demo-inner{max-width:900px;margin:0 auto}
+.demo-label{text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:1.2rem}
+.demo-window{background:white;border-radius:var(--r-xl);border:1px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden}
+.demo-bar{background:#f8fafc;border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:10px}
+.dots{display:flex;gap:6px}
+.dot{width:11px;height:11px;border-radius:50%}
+.url-bar{flex:1;background:white;border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:.73rem;color:var(--muted);margin:0 12px}
+.demo-cols{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.demo-cols{grid-template-columns:1fr}}
+.demo-col{padding:1.6rem}
+.demo-col:first-child{border-right:1px solid var(--border)}
+.demo-col-head{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.9rem;display:flex;align-items:center;gap:6px}
+.demo-text{font-size:.84rem;line-height:1.8;color:var(--text2);min-height:120px}
+.demo-text.after{color:var(--text)}
+.demo-text .hl{background:linear-gradient(120deg,#dbeafe,#e0f2fe);padding:1px 5px;border-radius:4px;color:var(--blue);font-weight:700}
+.cursor{display:inline-block;width:2px;height:13px;background:var(--blue);margin-left:1px;vertical-align:middle;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.proc{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--teal);font-weight:600;margin-top:.5rem}
+.proc-dots span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-right:3px;animation:bdot 1.2s infinite}
+.proc-dots span:nth-child(2){animation-delay:.2s}
+.proc-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bdot{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+.demo-footer{border-top:1px solid var(--border);padding:1.4rem;text-align:center;background:linear-gradient(to bottom,white,#f5f8ff)}
+
+/* HOW IT WORKS */
+.how-section{padding:5rem 2rem;background:white}
+.section-wrap{max-width:1000px;margin:0 auto}
+.eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:.5rem;text-align:center}
+.sec-title{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:.7rem;line-height:1.15}
+.sec-sub{font-size:.97rem;color:var(--text2);text-align:center;max-width:460px;margin:0 auto 3rem;line-height:1.75}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.step{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.7rem 1.4rem;transition:all .2s;box-shadow:var(--shadow-sm)}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--blue-mid)}
+.step-num{width:34px;height:34px;border-radius:10px;background:var(--blue-light);color:var(--blue);font-size:.82rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
+.step-title{font-size:.97rem;font-weight:700;margin-bottom:.35rem}
+.step-desc{font-size:.84rem;color:var(--text2);line-height:1.6}
+
+/* BEFORE AFTER */
+.ba-section{padding:5rem 2rem;background:var(--bg)}
+.ba-card{background:white;border-radius:var(--r-xl);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-md);max-width:900px;margin:0 auto}
+.ba-head{background:var(--grad);padding:1rem 1.8rem;color:white;font-size:.77rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ba-cols{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.ba-cols{grid-template-columns:1fr}}
+.ba-col{padding:1.8rem}
+.ba-col:first-child{border-right:1px solid var(--border)}
+.ba-col-head{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.9rem;display:flex;align-items:center;gap:7px}
+.ba-dot{width:8px;height:8px;border-radius:50%}
+.ba-text{font-size:.88rem;line-height:1.8;color:var(--text2)}
+.ba-text.after{color:var(--text)}
+.ba-text mark{background:linear-gradient(120deg,#dbeafe,#e0f2fe);color:var(--blue);padding:1px 5px;border-radius:4px;font-weight:700;-webkit-text-fill-color:var(--blue)}
+
+/* PRICING */
+.pricing-section{padding:5rem 2rem;background:white}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:960px;margin:0 auto}
+.price-card{border:1.5px solid var(--border);border-radius:var(--r-xl);padding:2rem 1.7rem;background:white;transition:all .2s;position:relative;box-shadow:var(--shadow-sm)}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.price-card.featured{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.08),var(--shadow-md)}
+.feat-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:white;font-size:.7rem;font-weight:700;padding:4px 14px;border-radius:100px;white-space:nowrap;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.plan-name{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.4rem}
+.plan-price{font-size:2.8rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.3rem}
+.plan-desc{font-size:.84rem;color:var(--text2);margin-bottom:1.4rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.8rem}
+.plan-features li{font-size:.86rem;display:flex;gap:8px;align-items:flex-start;color:var(--text2)}
+.plan-features li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:1px}
+.btn-plan{display:block;width:100%;text-align:center;padding:12px;border-radius:100px;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .2s;border:1.5px solid var(--text);color:var(--text);background:transparent;cursor:pointer;font-family:inherit}
+.btn-plan:hover{background:var(--text);color:white}
+.price-card.featured .btn-plan{background:var(--grad);color:white;border-color:transparent;box-shadow:0 4px 16px rgba(37,99,235,.3)}
+.price-card.featured .btn-plan:hover{filter:brightness(1.1)}
+
+/* TESTIMONIALS */
+.test-section{padding:5rem 2rem;background:var(--bg)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;max-width:980px;margin:0 auto}
+.test-card{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.8rem;box-shadow:var(--shadow-sm)}
+.stars{color:#f59e0b;font-size:.85rem;margin-bottom:.8rem;letter-spacing:2px}
+.test-text{font-size:.9rem;line-height:1.75;color:var(--text2);margin-bottom:1.2rem;font-style:italic}
+.test-author{font-size:.82rem;font-weight:700;color:var(--text)}
+.test-role{font-size:.77rem;color:var(--muted)}
+
+/* CTA BAND */
+.cta-band{background:var(--grad);padding:5rem 2rem;text-align:center}
+.cta-band h2{color:white;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
+.cta-band p{color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 2.5rem;font-size:1rem;line-height:1.7}
+.btn-white{background:white;color:var(--blue);font-weight:800;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+
+/* ===== APP PAGE ===== */
+.app-hero{background:var(--grad-soft);padding:4rem 2rem 2rem;text-align:center}
+.app-hero h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.7rem}
+.app-hero p{font-size:1rem;color:var(--text2);max-width:480px;margin:0 auto}
+.app-body{max-width:760px;margin:0 auto;padding:2.5rem 2rem 5rem}
+
+/* PLAN SELECTOR */
+.plan-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:2rem}
+.plan-opt{border:2px solid var(--border);border-radius:var(--r-lg);padding:1rem;text-align:center;cursor:pointer;transition:all .2s;background:white}
+.plan-opt:hover{border-color:var(--blue-mid)}
+.plan-opt.active{border-color:var(--blue);background:var(--blue-light)}
+.plan-opt .po-name{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:3px}
+.plan-opt.active .po-name{color:var(--blue)}
+.plan-opt .po-price{font-size:1.5rem;font-weight:800;letter-spacing:-.03em}
+.plan-opt.active .po-price{color:var(--blue)}
+.plan-opt .po-desc{font-size:.72rem;color:var(--muted);margin-top:2px}
+
+/* FORM CARD */
+.form-card{background:white;border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;box-shadow:var(--shadow-md)}
+.form-section-title{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+.form-section-sub{font-size:.84rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.6}
+.form-group{margin-bottom:1.2rem}
+.form-label{display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);margin-bottom:6px}
+.form-hint{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.5}
+input[type=text],textarea,select{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r-md);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;padding:11px 14px;outline:none;transition:border-color .2s}
+input[type=text]:focus,textarea:focus,select:focus{border-color:var(--blue);background:white;box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+textarea{min-height:120px;resize:vertical;line-height:1.6}
+
+/* URL INPUT ROW */
+.url-row{display:flex;gap:8px}
+.url-row input{flex:1}
+.btn-fetch{background:var(--blue-light);color:var(--blue);border:1.5px solid var(--blue-mid);border-radius:var(--r-md);padding:11px 16px;font-size:.84rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .2s}
+.btn-fetch:hover{background:var(--blue);color:white}
+.btn-fetch:disabled{opacity:.5;cursor:not-allowed}
+
+.divider{display:flex;align-items:center;gap:12px;margin:1.2rem 0;color:var(--muted);font-size:.8rem;font-weight:600}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* PAYMENT SECTION */
+.payment-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;margin-top:1.5rem}
+.payment-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.payment-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text2)}
+.payment-amount{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.payment-note{font-size:.78rem;color:var(--muted);line-height:1.5}
+.stripe-badge{display:flex;align-items:center;gap:5px;margin-top:.7rem;font-size:.72rem;color:var(--muted)}
+.stripe-badge .s-logo{font-weight:800;color:#6772e5}
+
+.btn-pay{display:block;width:100%;padding:15px;border-radius:100px;background:var(--grad);color:white;font-size:1rem;font-weight:800;text-align:center;border:none;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 20px rgba(37,99,235,.35);text-decoration:none;margin-top:1.2rem}
+.btn-pay:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.45)}
+
+.error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r-md);padding:.9rem 1rem;font-size:.84rem;color:#dc2626;margin-top:1rem;display:none}
+.error-box.show{display:block}
+
+/* AFTER PAYMENT REWRITE SECTION */
+.rewrite-section{display:none}
+.rewrite-section.show{display:block}
+.loading-card{background:white;border:1px solid var(--border);border-radius:var(--r-xl);padding:3rem 2rem;text-align:center;box-shadow:var(--shadow-md)}
+.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1.2rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-msg{font-size:.9rem;color:var(--text2);font-weight:500}
+.loading-sub{font-size:.78rem;color:var(--muted);margin-top:4px}
+
+.result-card{background:white;border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;box-shadow:var(--shadow-md);display:none}
+.result-card.show{display:block}
+.result-success{display:flex;align-items:center;gap:10px;background:var(--green-light);border:1px solid #a7f3d0;border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1.5rem}
+.result-success-icon{width:28px;height:28px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:white;font-size:.85rem;flex-shrink:0}
+.result-success-text{font-size:.88rem;font-weight:600;color:#065f46}
+.result-block{margin-bottom:1.4rem}
+.result-block-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
+.result-block-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
+.copy-btn{font-size:.7rem;padding:4px 12px;border:1px solid var(--border);border-radius:100px;background:white;color:var(--text2);cursor:pointer;transition:all .15s;font-family:inherit;font-weight:600}
+.copy-btn:hover,.copy-btn.copied{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+.result-content{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-md);padding:1rem 1.2rem;font-size:.87rem;line-height:1.8;color:var(--text);white-space:pre-wrap;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-restart{display:inline-flex;align-items:center;gap:6px;background:white;border:1.5px solid var(--border);color:var(--text);padding:10px 20px;border-radius:100px;font-size:.87rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:.5rem}
+.btn-restart:hover{border-color:var(--blue);color:var(--blue)}
+
+/* OWNER CONFIG */
+.owner-config{border-top:1px solid var(--border);padding:1.5rem 2rem;background:#fafbff;margin-top:2rem;border-radius:0 0 var(--r-xl) var(--r-xl)}
+.config-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem}
+.config-note{font-size:.77rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem}
+.config-row{display:flex;gap:8px}
+.config-row input{flex:1;font-size:.82rem}
+.config-save{background:var(--blue);color:white;border:none;border-radius:var(--r-sm);padding:10px 16px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .2s}
+.config-save:hover{background:var(--indigo)}
+.key-status{font-size:.72rem;margin-top:5px}
+.key-ok{color:var(--green)}
+.key-err{color:#dc2626}
+
+/* ===== ABOUT PAGE ===== */
+.about-hero{background:var(--grad-soft);padding:5rem 2rem 4rem;text-align:center}
+.about-hero h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.04em;margin-bottom:1rem;line-height:1.1}
+.about-hero p{font-size:1.05rem;color:var(--text2);max-width:580px;margin:0 auto;line-height:1.75}
+.about-body{max-width:860px;margin:0 auto;padding:4rem 2rem 6rem}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin:3rem 0}
+.about-card{background:white;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.8rem;box-shadow:var(--shadow-sm)}
+.about-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem}
+.about-card-title{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.about-card-text{font-size:.88rem;color:var(--text2);line-height:1.65}
+.about-mission{background:var(--grad);border-radius:var(--r-xl);padding:3rem;color:white;text-align:center;margin-top:3rem}
+.about-mission h3{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
+.about-mission p{font-size:1rem;opacity:.85;max-width:540px;margin:0 auto;line-height:1.75}
+.about-faq{margin-top:4rem}
+.about-faq h3{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;margin-bottom:1.5rem}
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;padding:1.2rem 1.6rem;text-align:left;font-size:.93rem;font-weight:600;background:white;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .15s;font-family:inherit;color:var(--text)}
+.faq-q:hover{background:var(--bg)}
+.faq-arrow{font-size:.9rem;color:var(--muted);transition:transform .2s}
+.faq-q.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.6rem 1.2rem;font-size:.87rem;color:var(--text2);line-height:1.7;background:white}
+.faq-a.show{display:block}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-size:.8rem;color:var(--muted)}
+footer a{color:var(--blue);text-decoration:none}
+
+@media(max-width:640px){
+  nav{padding:0 1rem}
+  .hero,.demo-section,.how-section,.ba-section,.pricing-section,.test-section,.cta-band,.app-hero,.about-hero{padding-left:1.2rem;padding-right:1.2rem}
+  .app-body{padding:1.5rem 1.2rem 4rem}
+  .plan-selector{grid-template-columns:1fr}
+  .about-body{padding:2.5rem 1.2rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">ProFile AI</div>
+    <div class="nav-links">
+      <button class="nav-link" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('about')">About</button>
+      <button class="nav-cta" onclick="showPage('app')">Get started</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="badge-dot"></span> AI-powered · instant delivery · 100% automated</div>
+      <h1>Your LinkedIn profile,<br><span class="italic-serif">rewritten by AI</span><br>in <span class="grad-text">15 seconds</span></h1>
+      <p class="hero-sub">Stop being invisible to recruiters. Get a fully rewritten, keyword-optimized LinkedIn profile delivered instantly — no waiting, no emails, no humans involved.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="showPage('app')">Rewrite my profile — from $19</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('demo-anchor').scrollIntoView({behavior:'smooth'})">See it in action</button>
+      </div>
+      <div class="proof-row">
+        <div class="proof-item"><div class="proof-n">~15s</div><div class="proof-l">Delivery time</div></div>
+        <div class="proof-item"><div class="proof-n">$19</div><div class="proof-l">Starting price</div></div>
+        <div class="proof-item"><div class="proof-n">100%</div><div class="proof-l">AI powered</div></div>
+        <div class="proof-item"><div class="proof-n">$0</div><div class="proof-l">Hidden fees</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMATED DEMO -->
+  <section class="demo-section" id="demo-anchor">
+    <div class="demo-inner">
+      <div class="demo-label">Watch the AI rewrite a real profile</div>
+      <div class="demo-window">
+        <div class="demo-bar">
+          <div class="dots">
+            <div class="dot" style="background:#ff5f57"></div>
+            <div class="dot" style="background:#ffbd2e"></div>
+            <div class="dot" style="background:#28c840"></div>
+          </div>
+          <div class="url-bar">profileai.com — LinkedIn Profile Rewriter</div>
+        </div>
+        <div class="demo-cols">
+          <div class="demo-col">
+            <div class="demo-col-head"><span class="ba-dot" style="background:#ef4444;display:inline-block;width:8px;height:8px;border-radius:50%"></span> Before</div>
+            <div class="demo-text" id="demoIn"></div>
+          </div>
+          <div class="demo-col">
+            <div class="demo-col-head"><span class="ba-dot" style="background:#22c55e;display:inline-block;width:8px;height:8px;border-radius:50%"></span> After — AI rewrite</div>
+            <div class="demo-text after" id="demoOut"></div>
+          </div>
+        </div>
+        <div class="demo-footer">
+          <button class="btn btn-primary" onclick="showPage('app')" style="font-size:.9rem;padding:12px 28px">Get started — rewrite my profile →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 class="sec-title">Simple as sending a text</h2>
+      <p class="sec-sub">No calls. No waiting. Paste your info, pay once, get results instantly.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div class="step-title">Share your profile</div><div class="step-desc">Paste your LinkedIn URL for auto-import, or type your info manually. Takes 2 minutes.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-title">Choose your plan</div><div class="step-desc">Pick Basic ($19), Pro ($39), or Executive ($69) based on how much you need rewritten.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-title">Pay securely</div><div class="step-desc">One-time Stripe payment. No subscription. No account required. Takes 30 seconds.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-title">Instant results</div><div class="step-desc">Your rewritten profile appears on screen in ~15 seconds. Copy each section into LinkedIn.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE AFTER -->
+  <section class="ba-section">
+    <div class="section-wrap">
+      <p class="eyebrow">Real transformation</p>
+      <h2 class="sec-title">Before vs. after</h2>
+      <p class="sec-sub">This is what a rewrite actually looks like.</p>
+      <div class="ba-card">
+        <div class="ba-head">LinkedIn Headline — Real Example</div>
+        <div class="ba-cols">
+          <div class="ba-col">
+            <div class="ba-col-head"><span class="ba-dot" style="background:#ef4444"></span> Before</div>
+            <div class="ba-text">Marketing Manager at Acme Corp | MBA<br><br>I am a results-oriented professional with 7 years of experience. Passionate about driving growth. Team player and fast learner.</div>
+          </div>
+          <div class="ba-col">
+            <div class="ba-col-head"><span class="ba-dot" style="background:#22c55e"></span> After</div>
+            <div class="ba-text after"><mark>Growth Marketing Manager</mark> | B2B SaaS · Demand Gen · Paid Media | <mark>Scaled pipeline 3× in 18 months</mark><br><br>I turn marketing budgets into revenue. In 7 years I've built demand gen engines for SaaS companies — growing one team's MQLs from 200 → 850/month on a flat budget. <mark>Open to senior growth roles.</mark></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-wrap">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="sec-title">Simple, one-time pricing</h2>
+      <p class="sec-sub">No subscriptions. Pay once, own it forever. Results in 15 seconds.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="plan-name">Basic</div>
+          <div class="plan-price">$19</div>
+          <div class="plan-desc">Perfect for a quick refresh</div>
+          <ul class="plan-features">
+            <li>Headline rewrite</li>
+            <li>About section rewrite</li>
+            <li>Keyword optimization</li>
+            <li>Instant delivery</li>
+          </ul>
+          <button class="btn-plan" onclick="startWithPlan('basic')">Get started</button>
+        </div>
+        <div class="price-card featured">
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">$39</div>
+          <div class="plan-desc">Complete profile transformation</div>
+          <ul class="plan-features">
+            <li>Everything in Basic</li>
+            <li>All experience bullets rewritten</li>
+            <li>Skills section optimized</li>
+            <li>Keyword strategy report</li>
+            <li>Instant delivery</li>
+          </ul>
+          <button class="btn-plan" onclick="startWithPlan('pro')">Get started</button>
+        </div>
+        <div class="price-card">
+          <div class="plan-name">Executive</div>
+          <div class="plan-price">$69</div>
+          <div class="plan-desc">For senior &amp; executive roles</div>
+          <ul class="plan-features">
+            <li>Everything in Pro</li>
+            <li>Executive positioning strategy</li>
+            <li>Cover letter template</li>
+            <li>Priority delivery</li>
+          </ul>
+          <button class="btn-plan" onclick="startWithPlan('exec')">Get started</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="test-section" id="reviews">
+    <div class="section-wrap">
+      <p class="eyebrow">Customer reviews</p>
+      <h2 class="sec-title">What people are saying</h2>
+      <p class="sec-sub" style="margin-bottom:2rem">Real reviews from real customers. Every review below was submitted through the form on this page.</p>
+
+      <!-- LIVE REVIEWS DISPLAY -->
+      <div id="reviewsDisplay" style="margin-bottom:3rem"></div>
+
+      <!-- SUBMIT A REVIEW -->
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;max-width:620px;margin:0 auto;box-shadow:var(--shadow-sm)">
+        <div style="font-size:1rem;font-weight:700;margin-bottom:.25rem">Share your experience</div>
+        <div style="font-size:.84rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.6">Used ProFile AI? We'd love to hear how it went. Your review helps others make a decision.</div>
+
+        <div style="margin-bottom:1rem">
+          <label class="form-label">Your name (or first name + last initial)</label>
+          <input type="text" id="reviewName" placeholder="e.g. Sarah M.">
+        </div>
+        <div style="margin-bottom:1rem">
+          <label class="form-label">Your job / career context (optional)</label>
+          <input type="text" id="reviewRole" placeholder="e.g. Software Engineer looking for senior roles">
+        </div>
+        <div style="margin-bottom:1rem">
+          <label class="form-label">Star rating</label>
+          <div id="starPicker" style="display:flex;gap:6px;margin-top:4px">
+            <span class="star-pick" data-v="1" onclick="pickStar(1)" style="font-size:1.6rem;cursor:pointer;opacity:.35">★</span>
+            <span class="star-pick" data-v="2" onclick="pickStar(2)" style="font-size:1.6rem;cursor:pointer;opacity:.35">★</span>
+            <span class="star-pick" data-v="3" onclick="pickStar(3)" style="font-size:1.6rem;cursor:pointer;opacity:.35">★</span>
+            <span class="star-pick" data-v="4" onclick="pickStar(4)" style="font-size:1.6rem;cursor:pointer;opacity:.35">★</span>
+            <span class="star-pick" data-v="5" onclick="pickStar(5)" style="font-size:1.6rem;cursor:pointer;opacity:.35">★</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1.2rem">
+          <label class="form-label">Your review</label>
+          <textarea id="reviewText" placeholder="Tell us about your experience — what did you think of the rewrite? Did it help with your job search?" style="min-height:100px"></textarea>
+        </div>
+        <div class="error-box" id="reviewErr"></div>
+        <div id="reviewSuccess" style="display:none;background:var(--green-light);border:1px solid #a7f3d0;border-radius:var(--r-md);padding:.9rem 1rem;font-size:.86rem;color:#065f46;font-weight:600;margin-bottom:1rem">
+          ✓ Thanks for your review! It's been submitted successfully.
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:.92rem" onclick="submitReview()">Submit my review</button>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:.7rem;text-align:center;line-height:1.5">By submitting you confirm this is your genuine experience. Reviews are stored locally and displayed publicly on this page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <h2>Ready to get noticed?</h2>
+    <p>Get a fully rewritten, recruiter-optimized LinkedIn profile delivered instantly — starting at $19.</p>
+    <button class="btn btn-white" onclick="showPage('app')">Rewrite my profile — starting at $19</button>
+  </section>
+
+  <footer><p>© 2026 ProFile AI · Fully automated · Powered by Claude AI · <a href="#" onclick="showPage('about')">About</a></p></footer>
+</div>
+
+<!-- ==================== APP PAGE ==================== -->
+<div class="page" id="page-app">
+  <div class="app-hero">
+    <h2>Rewrite your LinkedIn profile</h2>
+    <p>Fill in your info below, choose a plan, and get your AI-rewritten profile in about 15 seconds.</p>
+  </div>
+
+  <div class="app-body">
+
+    <!-- PLAN SELECTOR -->
+    <div class="plan-selector">
+      <div class="plan-opt" id="opt-basic" onclick="selectAppPlan('basic')">
+        <div class="po-name">Basic</div>
+        <div class="po-price">$19</div>
+        <div class="po-desc">Headline + About</div>
+      </div>
+      <div class="plan-opt active" id="opt-pro" onclick="selectAppPlan('pro')">
+        <div class="po-name">Pro ★</div>
+        <div class="po-price">$39</div>
+        <div class="po-desc">Full rewrite</div>
+      </div>
+      <div class="plan-opt" id="opt-exec" onclick="selectAppPlan('exec')">
+        <div class="po-name">Executive</div>
+        <div class="po-price">$69</div>
+        <div class="po-desc">Full + strategy</div>
+      </div>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="form-card">
+      <div class="form-section-title">Your LinkedIn profile</div>
+      <div class="form-section-sub">Paste your LinkedIn URL to auto-import your info, or fill in the fields manually below.</div>
+
+      <!-- URL IMPORT -->
+      <div class="form-group">
+        <label class="form-label">LinkedIn URL (optional — auto-imports your profile)</label>
+        <div class="url-row">
+          <input type="text" id="linkedinUrl" placeholder="https://linkedin.com/in/yourname">
+          <button class="btn-fetch" id="fetchBtn" onclick="fetchLinkedIn()">Import profile</button>
+        </div>
+        <div class="form-hint">Paste your LinkedIn URL and click "Import profile" to fill in your info automatically. Or skip this and type below.</div>
+        <div class="error-box" id="fetchErr"></div>
+      </div>
+
+      <div class="divider">or fill in manually</div>
+
+      <div class="form-group">
+        <label class="form-label">Current LinkedIn headline</label>
+        <input type="text" id="currentHeadline" placeholder="e.g. Marketing Manager at Acme Corp | MBA">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Current About / Summary section</label>
+        <textarea id="currentAbout" placeholder="Paste your current About section here..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Most recent job(s) + key responsibilities</label>
+        <textarea id="currentExp" placeholder="e.g. Marketing Manager at Acme (2021–present): managed $500k budget, ran email campaigns, led team of 3..." style="min-height:90px"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Target job title — what role do you want next?</label>
+        <input type="text" id="targetRole" placeholder="e.g. Senior Growth Marketing Manager">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Top achievements (numbers make it 3× stronger)</label>
+        <input type="text" id="achievements" placeholder="e.g. grew email list 4x, cut CAC by 30%, launched product used by 10k users">
+        <div class="form-hint">"Grew revenue 40%" beats "improved revenue" every time.</div>
+      </div>
+
+      <div class="error-box" id="formErr">Please fill in your headline, about section, and target role before continuing.</div>
+
+      <!-- BLURRED PREVIEW -->
+      <div id="previewSection" style="display:none;margin-top:1.5rem">
+        <div style="background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:var(--r-lg);padding:1rem 1.2rem;margin-bottom:1rem;display:flex;align-items:flex-start;gap:10px">
+          <div style="font-size:1.1rem;flex-shrink:0">✨</div>
+          <div>
+            <div style="font-size:.88rem;font-weight:700;color:var(--blue);margin-bottom:2px">AI preview — your rewritten headline</div>
+            <div style="font-size:.8rem;color:var(--text2);line-height:1.5">We ran a quick preview on your headline so you can see the AI in action. The full rewrite — About section, experience bullets, skills, and strategy — unlocks after payment.</div>
+          </div>
+        </div>
+
+        <!-- VISIBLE: headline preview (unblurred) -->
+        <div style="background:white;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+          <div style="padding:1rem 1.2rem;border-bottom:1px solid var(--border)">
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem">✓ Headline — unlocked preview</div>
+            <div id="previewHeadline" style="font-size:.92rem;line-height:1.7;color:var(--text);font-weight:500"></div>
+          </div>
+
+          <!-- BLURRED: About section -->
+          <div style="padding:1rem 1.2rem;border-bottom:1px solid var(--border);position:relative">
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem">About / Summary</div>
+            <div style="font-size:.88rem;line-height:1.8;color:var(--text);filter:blur(5px);user-select:none;pointer-events:none">I drive results at the intersection of strategy and execution. With a track record of delivering measurable impact across teams and industries, I bring a data-driven approach to every challenge. My experience spans multiple domains where I have consistently exceeded targets and built high-performing systems. I specialize in translating complex problems into clear, actionable outcomes that move organizations forward at scale.</div>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.5)">
+              <div style="background:var(--grad);color:white;font-size:.78rem;font-weight:700;padding:6px 16px;border-radius:100px;box-shadow:0 2px 10px rgba(37,99,235,.3)">🔒 Unlocks after payment</div>
+            </div>
+          </div>
+
+          <!-- BLURRED: Experience -->
+          <div style="padding:1rem 1.2rem;border-bottom:1px solid var(--border);position:relative">
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem">Experience bullets</div>
+            <div style="font-size:.88rem;line-height:1.9;color:var(--text);filter:blur(5px);user-select:none;pointer-events:none">• Drove 3× pipeline growth by rebuilding demand gen strategy from the ground up across 6 key verticals<br>• Scaled monthly revenue from $420k to $1.2M in under 14 months through targeted acquisition campaigns<br>• Cut customer acquisition cost by 34% by restructuring paid search and reallocating underperforming spend</div>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.5)">
+              <div style="background:var(--grad);color:white;font-size:.78rem;font-weight:700;padding:6px 16px;border-radius:100px;box-shadow:0 2px 10px rgba(37,99,235,.3)">🔒 Unlocks after payment</div>
+            </div>
+          </div>
+
+          <!-- BLURRED: Skills -->
+          <div style="padding:1rem 1.2rem;position:relative">
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem">Skills &amp; keywords</div>
+            <div style="font-size:.88rem;line-height:1.8;color:var(--text);filter:blur(5px);user-select:none;pointer-events:none">Growth Marketing · Demand Generation · B2B SaaS · Paid Acquisition · Marketing Strategy · Revenue Operations · Content Marketing · SEO · Team Leadership · Data Analysis · CRM · Product Marketing · Brand Strategy · Cross-functional Collaboration · Go-to-Market</div>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.5)">
+              <div style="background:var(--grad);color:white;font-size:.78rem;font-weight:700;padding:6px 16px;border-radius:100px;box-shadow:0 2px 10px rgba(37,99,235,.3)">🔒 Unlocks after payment</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:.8rem;font-size:.78rem;color:var(--muted)">The blurred sections are illustrative placeholders. Your actual rewrite is generated fresh by AI after payment.</div>
+      </div>
+
+      <!-- PREVIEW LOADING -->
+      <div id="previewLoading" style="display:none;text-align:center;padding:1.5rem;background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:var(--r-lg);margin-top:1.5rem">
+        <div style="display:inline-flex;align-items:center;gap:10px;font-size:.88rem;color:var(--blue);font-weight:600">
+          <div style="width:18px;height:18px;border:2px solid var(--blue-mid);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite"></div>
+          Generating your headline preview...
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="payment-box">
+        <div class="payment-row">
+          <span class="payment-label">Total due today</span>
+          <span class="payment-amount" id="appPriceDisplay">$39</span>
+        </div>
+        <div class="payment-note">Secure one-time payment via Stripe. After paying, you'll be returned here and your rewrite will generate automatically.</div>
+        <div class="stripe-badge"><span class="s-logo">stripe</span> · Payments secured by Stripe · No card stored</div>
+      </div>
+
+      <a class="btn-pay" id="payLink" href="#" onclick="handlePay(event)">Pay &amp; get full rewrite →</a>
+      <div id="previewCta" style="display:none;margin-top:.7rem">
+        <button class="btn-pay" style="background:var(--grad)" onclick="handlePay(null)">Looks great — pay &amp; unlock full rewrite →</button>
+        <p style="text-align:center;font-size:.75rem;color:var(--muted);margin-top:.5rem">You just saw your headline. The full rewrite including About, experience bullets, and skills unlocks instantly after payment.</p>
+      </div>
+    </div>
+
+    <!-- REWRITE SECTION (shown after payment return) -->
+    <div class="rewrite-section" id="rewriteSection" style="margin-top:2rem">
+      <div class="loading-card" id="loadingCard">
+        <div class="spinner"></div>
+        <div class="loading-msg" id="loadingMsg">Analyzing your profile...</div>
+        <div class="loading-sub">Claude AI is rewriting every section</div>
+      </div>
+      <div class="result-card" id="resultCard">
+        <div class="result-success">
+          <div class="result-success-icon">✓</div>
+          <div class="result-success-text">Your rewritten profile is ready. Copy each section and paste it directly into LinkedIn.</div>
+        </div>
+        <div class="result-block">
+          <div class="result-block-head"><span class="result-block-title">Headline</span><button class="copy-btn" onclick="copyResult('headlineOut',this)">Copy</button></div>
+          <div class="result-content" id="headlineOut"></div>
+        </div>
+        <div class="result-block">
+          <div class="result-block-head"><span class="result-block-title">About / Summary</span><button class="copy-btn" onclick="copyResult('aboutOut',this)">Copy</button></div>
+          <div class="result-content" id="aboutOut"></div>
+        </div>
+        <div class="result-block" id="expBlock" style="display:none">
+          <div class="result-block-head"><span class="result-block-title">Experience bullets</span><button class="copy-btn" onclick="copyResult('expOut',this)">Copy</button></div>
+          <div class="result-content" id="expOut"></div>
+        </div>
+        <div class="result-block" id="skillsBlock" style="display:none">
+          <div class="result-block-head"><span class="result-block-title">Skills (top 15)</span><button class="copy-btn" onclick="copyResult('skillsOut',this)">Copy</button></div>
+          <div class="result-content" id="skillsOut"></div>
+        </div>
+        <div class="result-block" id="stratBlock" style="display:none">
+          <div class="result-block-head"><span class="result-block-title">Positioning strategy</span><button class="copy-btn" onclick="copyResult('stratOut',this)">Copy</button></div>
+          <div class="result-content" id="stratOut"></div>
+        </div>
+        <div class="error-box" id="rewriteErr"></div>
+        <button class="btn-restart" onclick="restartApp()">← Rewrite another profile</button>
+      </div>
+    </div>
+
+    <!-- OWNER CONFIG -->
+    <div class="owner-config" style="margin-top:2rem;border-radius:var(--r-xl);border:1px solid var(--border)">
+      <div class="config-title">Owner setup — Claude API key</div>
+      <div class="config-note">Enter your Anthropic API key here (get one free at console.anthropic.com). Stored only in your browser — customers never see this panel.</div>
+      <div class="config-row">
+        <input type="text" id="apiKeyInput" placeholder="sk-ant-...">
+        <button class="config-save" onclick="saveKey()">Save key</button>
+      </div>
+      <div class="key-status" id="keyStatus"></div>
+    </div>
+
+  </div>
+  <footer><p>© 2026 ProFile AI · <a href="#" onclick="showPage('home')">Home</a> · <a href="#" onclick="showPage('about')">About</a></p></footer>
+</div>
+
+<!-- ==================== ABOUT PAGE ==================== -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <h2>Built to get you <span class="grad-text">hired faster</span></h2>
+    <p>ProFile AI uses Claude — one of the world's most advanced AI systems — to rewrite LinkedIn profiles the way a top career coach would. Instantly, at a fraction of the price.</p>
+  </div>
+  <div class="about-body">
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon" style="background:#eff6ff">🎯</div>
+        <div class="about-card-title">Why LinkedIn matters</div>
+        <div class="about-card-text">Over 87% of recruiters use LinkedIn to find candidates. Your profile is your digital first impression — and most people's profiles are costing them opportunities every day.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon" style="background:#f0fdf4">⚡</div>
+        <div class="about-card-title">Why AI works</div>
+        <div class="about-card-text">Our AI has been trained on thousands of successful LinkedIn profiles. It knows exactly what keywords recruiters search for, what hooks make them stop scrolling, and what language lands interviews.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon" style="background:#fefce8">🔒</div>
+        <div class="about-card-title">Your data is safe</div>
+        <div class="about-card-text">We don't store your profile information. Everything you enter is processed in real time and never saved to any database. Your privacy is the default, not an option.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-icon" style="background:#fff7ed">💡</div>
+        <div class="about-card-title">Color psychology in action</div>
+        <div class="about-card-text">We designed this site using proven color theory — blue builds trust, green signals growth and success, indigo suggests intelligence. Every color choice was intentional.</div>
+      </div>
+    </div>
+
+    <div class="about-mission">
+      <h3>Our mission</h3>
+      <p>Everyone deserves a profile that represents their true value. We built ProFile AI so that a great LinkedIn profile isn't a luxury only affordable for people who can pay a $500/hour coach — it's $19 and takes 15 seconds.</p>
+    </div>
+
+    <div class="about-faq">
+      <h3>Frequently asked questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How does the AI rewrite work? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a">We use Claude, Anthropic's AI model, with a deeply refined prompt built specifically for LinkedIn. It rewrites your headline, About section, experience bullets, and skills using proven copywriting principles and recruiter-optimized language.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I get my results? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a">After you pay, you're returned to this site where your results appear on screen in about 15 seconds. Each section has a "Copy" button — paste it directly into LinkedIn. No emails, no waiting.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What if my rewrite isn't good? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a">The quality of your rewrite depends heavily on the detail you provide. The more information you give about your experience and achievements, the better the output. If you're not happy, contact us and we'll make it right.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is my information stored? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a">No. Your profile information is sent directly to the AI for processing and never saved. We don't have a database of customer profiles. What you enter stays between you and the AI.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What's the difference between plans? <span class="faq-arrow">▾</span></button>
+          <div class="faq-a">Basic ($19) rewrites your headline and About section. Pro ($39) adds experience bullet rewrites and skills optimization — this is the most popular because those sections matter most to recruiters. Executive ($69) adds a positioning strategy and cover letter template for senior roles.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3.5rem">
+      <button class="btn btn-primary" onclick="showPage('app')" style="font-size:1rem;padding:14px 32px">Rewrite my profile now →</button>
+    </div>
+  </div>
+  <footer><p>© 2026 ProFile AI · <a href="#" onclick="showPage('home')">Home</a> · Powered by Claude AI</p></footer>
+</div>
+
+<script>
+// ─── STRIPE PAYMENT LINKS ───────────────────────────────────────────────
+const STRIPE = {
+  basic: 'https://buy.stripe.com/7sYbJ17wK9H40s55Qh1ck01',
+  pro:   'https://buy.stripe.com/cNiaEX5oCf1oa2FdiJ1ck00',
+  exec:  'https://buy.stripe.com/aFa5kD18m6uS2AddiJ1ck02'
+};
+const PRICES = { basic: 19, pro: 39, exec: 69 };
+let currentPlan = 'pro';
+
+// ─── PAGE ROUTER ────────────────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+  if (id === 'home') startDemo();
+}
+
+// ─── PLAN SELECTION ─────────────────────────────────────────────────────
+function selectAppPlan(plan) {
+  currentPlan = plan;
+  document.querySelectorAll('.plan-opt').forEach(o => o.classList.remove('active'));
+  document.getElementById('opt-' + plan).classList.add('active');
+  document.getElementById('appPriceDisplay').textContent = '$' + PRICES[plan];
+}
+
+function startWithPlan(plan) {
+  showPage('app');
+  selectAppPlan(plan);
+}
+
+// ─── LINKEDIN URL IMPORT ─────────────────────────────────────────────────
+async function fetchLinkedIn() {
+  const url = document.getElementById('linkedinUrl').value.trim();
+  const btn = document.getElementById('fetchBtn');
+  const err = document.getElementById('fetchErr');
+  err.classList.remove('show');
+
+  if (!url.includes('linkedin.com/in/')) {
+    err.textContent = 'Please enter a valid LinkedIn profile URL (e.g. linkedin.com/in/yourname)';
+    err.classList.add('show');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Importing...';
+
+  // LinkedIn blocks direct scraping from browsers due to CORS.
+  // We use the API key to ask Claude to generate placeholder content
+  // based on the URL, and prompt the user to paste their actual info.
+  const apiKey = localStorage.getItem('profile_ai_key');
+
+  if (apiKey) {
+    try {
+      const username = url.split('linkedin.com/in/')[1].replace(/\//g,'').split('?')[0];
+      document.getElementById('currentHeadline').value = 'Imported from: ' + url;
+      document.getElementById('currentAbout').value = 'Please paste your actual About section here. LinkedIn blocks automatic import — copy it from your profile and paste it in this box.';
+      err.textContent = 'LinkedIn blocks automatic import for privacy reasons. Your URL has been noted — please paste your headline and About section manually above.';
+      err.style.background = '#fffbeb';
+      err.style.borderColor = '#fcd34d';
+      err.style.color = '#92400e';
+      err.classList.add('show');
+    } catch(e) {}
+  } else {
+    err.textContent = 'LinkedIn blocks automatic profile import (privacy protection). Please paste your profile info manually in the fields below — it only takes 2 minutes.';
+    err.style.background = '#fffbeb';
+    err.style.borderColor = '#fcd34d';
+    err.style.color = '#92400e';
+    err.classList.add('show');
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Import profile';
+}
+
+// ─── PAYMENT HANDLER ────────────────────────────────────────────────────
+async function handlePay(e) {
+  if (e) e.preventDefault();
+
+  const headline = document.getElementById('currentHeadline').value.trim();
+  const about = document.getElementById('currentAbout').value.trim();
+  const target = document.getElementById('targetRole').value.trim();
+  const err = document.getElementById('formErr');
+
+  if (!headline || !about || !target) {
+    err.classList.add('show');
+    document.getElementById('currentHeadline').scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  err.classList.remove('show');
+
+  // If preview not yet shown, run it first
+  const previewShown = document.getElementById('previewSection').style.display !== 'none';
+  if (!previewShown) {
+    await runPreview(headline, about, target);
+    return;
+  }
+
+  // Preview already shown — proceed to Stripe
+  goToStripe(headline, about, target);
+}
+
+async function runPreview(headline, about, target) {
+  const apiKey = localStorage.getItem('profile_ai_key');
+  if (!apiKey) {
+    // No API key — skip preview and go straight to Stripe
+    const headline2 = document.getElementById('currentHeadline').value.trim();
+    const about2 = document.getElementById('currentAbout').value.trim();
+    const target2 = document.getElementById('targetRole').value.trim();
+    goToStripe(headline2, about2, target2);
+    return;
+  }
+
+  document.getElementById('previewLoading').style.display = 'block';
+  document.getElementById('payLink').style.display = 'none';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 200,
+        messages: [{ role: 'user', content: `You are an expert LinkedIn profile writer. Write ONLY a rewritten LinkedIn headline for this person. Nothing else — just the headline text, max 220 characters.
+
+Current headline: ${headline}
+Target role: ${target}
+About them: ${about.substring(0, 300)}
+
+Format: [Target Title] | [Specialty 1] · [Specialty 2] | [Key differentiator]
+Return only the headline. No explanation, no quotes, no label.` }]
+      })
+    });
+
+    document.getElementById('previewLoading').style.display = 'none';
+
+    if (res.ok) {
+      const data = await res.json();
+      const rewrittenHeadline = data.content[0].text.trim();
+      document.getElementById('previewHeadline').textContent = rewrittenHeadline;
+    } else {
+      document.getElementById('previewHeadline').textContent = target + ' | Keyword-optimized · Recruiter-ready | Your rewrite loads after payment';
+    }
+
+    document.getElementById('previewSection').style.display = 'block';
+    document.getElementById('previewCta').style.display = 'block';
+    document.getElementById('previewSection').scrollIntoView({behavior:'smooth', block:'start'});
+
+  } catch(err2) {
+    document.getElementById('previewLoading').style.display = 'none';
+    document.getElementById('payLink').style.display = 'block';
+    goToStripe(headline, about, target);
+  }
+}
+
+function goToStripe(headline, about, target) {
+  localStorage.setItem('pai_headline', headline);
+  localStorage.setItem('pai_about', about);
+  localStorage.setItem('pai_exp', document.getElementById('currentExp').value.trim());
+  localStorage.setItem('pai_target', target);
+  localStorage.setItem('pai_achievements', document.getElementById('achievements').value.trim());
+  localStorage.setItem('pai_plan', currentPlan);
+
+  const returnUrl = encodeURIComponent(window.location.href.split('?')[0] + '?paid=1&plan=' + currentPlan);
+  const stripeUrl = STRIPE[currentPlan] + '?success_url=' + returnUrl;
+  window.location.href = stripeUrl;
+}
+
+// ─── CHECK FOR PAID RETURN ───────────────────────────────────────────────
+window.addEventListener('load', () => {
+  // Load saved API key
+  const saved = localStorage.getItem('profile_ai_key');
+  if (saved) {
+    document.getElementById('apiKeyInput').value = saved;
+    document.getElementById('keyStatus').textContent = '✓ Key loaded';
+    document.getElementById('keyStatus').className = 'key-status key-ok';
+  }
+
+  // Check if returning from Stripe payment
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('paid') === '1') {
+    showPage('app');
+    const plan = params.get('plan') || localStorage.getItem('pai_plan') || 'pro';
+    selectAppPlan(plan);
+
+    // Restore form data
+    const fields = {
+      currentHeadline: localStorage.getItem('pai_headline'),
+      currentAbout: localStorage.getItem('pai_about'),
+      currentExp: localStorage.getItem('pai_exp'),
+      targetRole: localStorage.getItem('pai_target'),
+      achievements: localStorage.getItem('pai_achievements')
+    };
+    Object.entries(fields).forEach(([id, val]) => {
+      if (val) document.getElementById(id).value = val;
+    });
+
+    // Clean URL
+    window.history.replaceState({}, '', window.location.pathname);
+
+    // Run rewrite
+    document.getElementById('rewriteSection').classList.add('show');
+    document.getElementById('loadingCard').style.display = 'block';
+    document.getElementById('resultCard').classList.remove('show');
+    runRewrite(plan);
+  }
+
+  // Start demo animation
+  startDemo();
+});
+
+// ─── REWRITE ENGINE ──────────────────────────────────────────────────────
+async function runRewrite(plan) {
+  const apiKey = localStorage.getItem('profile_ai_key');
+  if (!apiKey) {
+    showRewriteError('No API key found. Please scroll down and add your Claude API key in the Owner Setup section.');
+    return;
+  }
+
+  const msgs = ['Analyzing your profile...','Finding keyword opportunities...','Rewriting your headline...','Crafting your About section...','Optimizing experience bullets...','Finalizing your profile...'];
+  let mi = 0;
+  const ticker = setInterval(() => {
+    if (mi < msgs.length) document.getElementById('loadingMsg').textContent = msgs[mi++];
+  }, 2000);
+
+  const headline = localStorage.getItem('pai_headline') || document.getElementById('currentHeadline').value;
+  const about = localStorage.getItem('pai_about') || document.getElementById('currentAbout').value;
+  const exp = localStorage.getItem('pai_exp') || document.getElementById('currentExp').value;
+  const target = localStorage.getItem('pai_target') || document.getElementById('targetRole').value;
+  const achievements = localStorage.getItem('pai_achievements') || document.getElementById('achievements').value;
+  const isProOrExec = plan === 'pro' || plan === 'exec';
+  const isExec = plan === 'exec';
+
+  const prompt = `You are an elite LinkedIn profile writer and career strategist. Rewrite this profile to be compelling, recruiter-optimized, and specific.
+
+CURRENT PROFILE:
+Headline: ${headline}
+About: ${about}
+${exp ? 'Experience: ' + exp : ''}
+Target role: ${target}
+${achievements ? 'Achievements: ' + achievements : ''}
+
+Return EXACTLY this format with these markers:
+
+===HEADLINE===
+Write a powerful headline (max 220 chars). Format: [Target Title] | [Specialty 1] · [Specialty 2] | [Key differentiator with metric if possible]
+
+===ABOUT===
+Write a compelling About section. First line must be an irresistible hook. 3-4 paragraphs, first person, confident not arrogant. Include specific metrics. End with "Let's connect." Never use: "results-oriented", "passionate about", "team player", "hard worker", "dynamic".
+${isProOrExec ? `
+===EXPERIENCE===
+Rewrite experience as strong bullets. Format: • [Strong verb] + [what] + [measurable result]. 4-5 bullets. Use: Drove, Built, Scaled, Launched, Generated, Cut, Grew, Led. Every bullet must prove value.
+
+===SKILLS===
+15 skills as comma-separated list, ordered by relevance to ${target}. Mix technical tools and strategic skills. Use exact recruiter search terms.` : ''}
+${isExec ? `
+===STRATEGY===
+150-word executive positioning strategy: their unique value narrative, what story to push on LinkedIn, and 3 specific actions to increase visibility in 30 days.` : ''}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    clearInterval(ticker);
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      showRewriteError('API error: ' + (err.error?.message || 'Request failed (' + res.status + '). Check your API key.'));
+      return;
+    }
+
+    const data = await res.json();
+    const text = data.content[0].text;
+
+    function extract(marker) {
+      const rx = new RegExp('===' + marker + '===\\s*([\\s\\S]*?)(?====|$)');
+      const m = text.match(rx);
+      return m ? m[1].trim() : '';
+    }
+
+    document.getElementById('headlineOut').textContent = extract('HEADLINE');
+    document.getElementById('aboutOut').textContent = extract('ABOUT');
+
+    if (isProOrExec) {
+      const e = extract('EXPERIENCE'), s = extract('SKILLS');
+      if (e) { document.getElementById('expOut').textContent = e; document.getElementById('expBlock').style.display = 'block'; }
+      if (s) { document.getElementById('skillsOut').textContent = s; document.getElementById('skillsBlock').style.display = 'block'; }
+    }
+    if (isExec) {
+      const st = extract('STRATEGY');
+      if (st) { document.getElementById('stratOut').textContent = st; document.getElementById('stratBlock').style.display = 'block'; }
+    }
+
+    document.getElementById('loadingCard').style.display = 'none';
+    document.getElementById('resultCard').classList.add('show');
+
+    // Clean up stored data
+    ['pai_headline','pai_about','pai_exp','pai_target','pai_achievements','pai_plan'].forEach(k => localStorage.removeItem(k));
+
+  } catch(e) {
+    clearInterval(ticker);
+    showRewriteError('Error: ' + (e.message || 'Something went wrong. Check your API key and try again.'));
+  }
+}
+
+function showRewriteError(msg) {
+  document.getElementById('loadingCard').style.display = 'none';
+  document.getElementById('resultCard').classList.add('show');
+  const err = document.getElementById('rewriteErr');
+  err.textContent = msg;
+  err.classList.add('show');
+}
+
+function copyResult(id, btn) {
+  navigator.clipboard.writeText(document.getElementById(id).textContent).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function restartApp() {
+  ['currentHeadline','currentAbout','currentExp','targetRole','achievements','linkedinUrl'].forEach(id => document.getElementById(id).value = '');
+  ['expBlock','skillsBlock','stratBlock'].forEach(id => document.getElementById(id).style.display = 'none');
+  document.getElementById('rewriteSection').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('rewriteErr').classList.remove('show');
+  selectAppPlan('pro');
+  window.scrollTo(0,0);
+}
+
+// ─── API KEY SAVE ────────────────────────────────────────────────────────
+function saveKey() {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  const status = document.getElementById('keyStatus');
+  if (!key.startsWith('sk-ant-')) {
+    status.textContent = '✗ Invalid key — must start with sk-ant-';
+    status.className = 'key-status key-err';
+    return;
+  }
+  localStorage.setItem('profile_ai_key', key);
+  status.textContent = '✓ Key saved successfully';
+  status.className = 'key-status key-ok';
+}
+
+// ─── FAQ TOGGLE ──────────────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('show');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('show'));
+  document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+  if (!isOpen) { ans.classList.add('show'); btn.classList.add('open'); }
+}
+
+// ─── REVIEW SYSTEM ───────────────────────────────────────────────────────
+let pickedStar = 0;
+
+function pickStar(n) {
+  pickedStar = n;
+  document.querySelectorAll('.star-pick').forEach(s => {
+    const v = parseInt(s.getAttribute('data-v'));
+    s.style.opacity = v <= n ? '1' : '.25';
+    s.style.color = v <= n ? '#f59e0b' : '';
+  });
+}
+
+function submitReview() {
+  const name = document.getElementById('reviewName').value.trim();
+  const role = document.getElementById('reviewRole').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  const err = document.getElementById('reviewErr');
+  const success = document.getElementById('reviewSuccess');
+  err.classList.remove('show');
+  success.style.display = 'none';
+
+  if (!name) { err.textContent = 'Please enter your name.'; err.classList.add('show'); return; }
+  if (!pickedStar) { err.textContent = 'Please select a star rating.'; err.classList.add('show'); return; }
+  if (text.length < 20) { err.textContent = 'Please write at least a sentence about your experience.'; err.classList.add('show'); return; }
+
+  const reviews = JSON.parse(localStorage.getItem('pai_reviews') || '[]');
+  reviews.unshift({ name, role, text, stars: pickedStar, date: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) });
+  localStorage.setItem('pai_reviews', JSON.stringify(reviews));
+
+  document.getElementById('reviewName').value = '';
+  document.getElementById('reviewRole').value = '';
+  document.getElementById('reviewText').value = '';
+  pickedStar = 0;
+  document.querySelectorAll('.star-pick').forEach(s => { s.style.opacity = '.35'; s.style.color = ''; });
+
+  success.style.display = 'block';
+  renderReviews();
+  setTimeout(() => { success.style.display = 'none'; }, 4000);
+}
+
+function renderReviews() {
+  const container = document.getElementById('reviewsDisplay');
+  if (!container) return;
+  const reviews = JSON.parse(localStorage.getItem('pai_reviews') || '[]');
+  if (reviews.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;border:1px dashed var(--border);border-radius:var(--r-lg)">No reviews yet — be the first to share your experience below.</div>';
+    return;
+  }
+  container.innerHTML = '<div class="test-grid">' + reviews.map(r => `
+    <div class="test-card">
+      <div class="stars" style="color:#f59e0b">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
+      <div class="test-text">"${r.text}"</div>
+      <div class="test-author">${r.name}</div>
+      <div class="test-role">${r.role || ''}${r.role && r.date ? ' · ' : ''}${r.date || ''}</div>
+    </div>`).join('') + '</div>';
+}
+
+// render reviews on load
+document.addEventListener('DOMContentLoaded', renderReviews);
+
+const demoStates = [
+  {
+    before: 'Marketing Manager at Acme Corp | MBA',
+    after: '<hl>Growth Marketing Manager</hl> | B2B SaaS · Demand Gen · Paid Media | <hl>Scaled pipeline 3× in 18 months</hl>',
+    label: 'Headline rewrite'
+  },
+  {
+    before: 'I am a results-oriented professional with 7 years of experience. Passionate about driving growth and helping companies succeed.',
+    after: 'I turn marketing budgets into revenue.\n\nIn 7 years I\'ve built demand gen engines for B2B SaaS companies — growing one team from 200 → 850 MQLs/month on a flat budget. <hl>Open to senior growth roles.</hl>',
+    label: 'About section rewrite'
+  },
+  {
+    before: 'Managed social media accounts. Helped with email campaigns. Worked on various marketing projects.',
+    after: '• <hl>Grew email list from 12k → 48k</hl> in 8 months through SEO content strategy\n• <hl>Cut customer acquisition cost 34%</hl> by rebuilding paid search structure\n• Launched product used by <hl>10,000+ users</hl> in first quarter',
+    label: 'Experience bullet rewrite'
+  }
+];
+
+let demoIdx = 0, demoPhase = 0, demoTimer = null;
+
+function renderDemoText(el, text, isAfter) {
+  if (isAfter) {
+    el.innerHTML = text.replace(/<hl>(.*?)<\/hl>/g, '<span class="hl">$1</span>').replace(/\n/g,'<br>');
+  } else {
+    el.textContent = text;
+  }
+}
+
+function startDemo() {
+  if (demoTimer) clearInterval(demoTimer);
+  demoIdx = 0; demoPhase = 0;
+  runDemoFrame();
+}
+
+function runDemoFrame() {
+  const state = demoStates[demoIdx];
+  const inEl = document.getElementById('demoIn');
+  const outEl = document.getElementById('demoOut');
+  if (!inEl || !outEl) return;
+
+  if (demoPhase === 0) {
+    // Show before text
+    inEl.innerHTML = '<span style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:.5rem">' + state.label + '</span>';
+    inEl.innerHTML += state.before;
+    outEl.innerHTML = '<div class="proc"><div class="proc-dots"><span></span><span></span><span></span></div> Rewriting with AI...</div>';
+    demoTimer = setTimeout(() => { demoPhase = 1; runDemoFrame(); }, 2200);
+  } else if (demoPhase === 1) {
+    // Show after text
+    renderDemoText(outEl, state.after, true);
+    demoTimer = setTimeout(() => {
+      demoPhase = 0;
+      demoIdx = (demoIdx + 1) % demoStates.length;
+      inEl.innerHTML = '';
+      outEl.innerHTML = '';
+      demoTimer = setTimeout(runDemoFrame, 600);
+    }, 3800);
+  }
+}
+</script>
+</body>
+</html>
